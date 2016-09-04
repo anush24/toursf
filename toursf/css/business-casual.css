@@ -512,3 +512,10 @@ nav.navbar-findcond span.badge.new { background: rgba(255, 0, 0, 0.8); color: #f
     color: white;
 }
 
+.category-list {
+    text-align: left;
+    margin-left: 30px;
+}
+.checkbox3 input[type="checkbox"]:checked + label::before {
+    background-color: #5cb85c;
+    border-color: #5cb85c; }

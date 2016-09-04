@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html ng-app="toursfApp" lang="en">
 
 <head>
 
@@ -31,7 +31,24 @@
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.1/angular.min.js"></script>
+    <script src="../controllers/placesControllers.js"></script>
+    <script src="../app.js"></script>
+    <script>
 
+        placesControllers.controller('PlacesCtrl', function ($scope, $http) {
+            $http.get('../json/masterdb.json').success(function (data) {
+                $scope.places = data;
+                console.log(data);
+            });
+            $scope.sortField="venue_name";
+            $scope.reverse=false;
+            function checkCategories(category) {
+                console.log(category);
+            }
+
+        });
+    </script>
 </head>
 
 <body>
@@ -64,7 +81,7 @@
     </div>
 
 </div>
-<div class="container" style="background:#FFF;padding-left:0px">
+<div class="container" ng-controller="PlacesCtrl as vm" style="background:#FFF;padding-left:0px">
     <nav class="navbar navbar-findcond" style="height:55px; background-color: #f5f5f5">
         <div class="container-fluid vertical-center">
             <div class="col-md-4">
@@ -73,7 +90,7 @@
             </div>
             <div class="col-md-4">
                 <div class="input-group stylish-input-group">
-                    <input type="text" class="form-control" placeholder="Search">
+                    <input type="text" ng-model="query" class="form-control" placeholder="Search">
                     <span class="input-group-addon">
                         <button type="submit">
                             <span class="glyphicon glyphicon-search"></span>
@@ -89,8 +106,9 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color:#000000">Sort By <b
                                 class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">Price</a></li>
-                            <li><a href="#">Reviews</a></li>
+                            <li><a href="#" ng-click="sortField='venue_price'; reverse = !reverse">Price</a></li>
+                            <li><a href="#" ng-click="sortField='venue_num_reviews'; reverse = !reverse">Reviews</a></li>
+                            <li><a href="#" ng-click="sortField='venue_likes'; reverse = !reverse">Likes</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -98,7 +116,7 @@
 
         </div>
     </nav>
-    <div class="col-md-3 sidebarPane">
+    <div class="col-md-3 sidebarPane"style="height:1800px">
         <div class="mini-submenu">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -110,19 +128,16 @@
             </div>
             <span href="#" class="list-group-item active">
             Categories
-            <span class="pull-right" id="slide-submenu">
-                <i class="fa fa-times"></i>
             </span>
-        </span>
-            <div class="list-group-item">
-                <i class="fa fa-comment-o"></i>
+            <div  ng-repeat="category in places.categories | filter:query" class="list-group-item">
+              <div class="category-list" > <input type="checkbox" class="checkbox3" />  {{category.name}}</div>
             </div>
 
         </div>
     </div>
-    <div class="col-md-9">
-        <div class="row">
-            <div class="col-md-12">
+    <div ng-repeat="place in places.venues | filter:query | orderBy:sortField " class="col-md-9">
+        <div ng-show="checkCategories place.venue_category" class="row">
+            <div >
                 <div class="well well-sm">
                     <div class="row">
                         <div class="col-xs-3 col-md-3 text-center">
@@ -131,29 +146,31 @@
                         </div>
                         <div class="col-xs-6 col-md-6 section-box">
                             <h2>
-                                Golden Gate <a href="http://bootsnipp.com/" target="_blank"><span
+                                {{place.venue_name}} <a href={{place.venue_url}} target="_blank"><span
                                     class="glyphicon glyphicon-new-window">
                             </span></a>
                             </h2>
+                            <span class="tag tag-pill btn-success">{{place.venue_category}}</span>
+                            <!--<span class="tag tag-pill btn-primary">Primary</span>-->
+                            <!--<span class="tag tag-pill btn-success">Success</span>-->
+                            <!--<span class="tag tag-pill btn-info">Info</span>-->
+                            <!--<span class="tag tag-pill btn-warning">Warning</span>-->
+                            <!--<span class="tag tag-pill btn-danger">Danger</span>-->
                             <p>
-                                Design elements, playground and code snippets for Bootstrap HTML/CSS/JS framework</p>
+                            {{place.venue_description}}</p>
                             <hr/>
                             <div class="row rating-desc">
                                 <div class="col-md-12">
-                                    <span class="glyphicon glyphicon-heart"></span><span
-                                        class="glyphicon glyphicon-heart">
-                                </span><span class="glyphicon glyphicon-heart"></span><span
-                                        class="glyphicon glyphicon-heart">
-                                </span><span class="glyphicon glyphicon-heart"></span>(36)<span
+                                    <span class="glyphicon glyphicon-heart"></span>{{place.venue_likes}}<span
                                         class="separator">|</span>
-                                    <span class="glyphicon glyphicon-comment"></span>(100 Comments)
+                                    <span class="glyphicon glyphicon-comment"></span>{{place.venue_num_reviews}} reviews
                                 </div>
                             </div>
                         </div>
                         <div class="col-xs-3 col-md-3 section-box">
                             <div class="headerDivider"></div>
                             <h2 class="amount text-center">
-                                $10
+                                ${{place.venue_price}}
                             </h2><br/>
                             <hr/>
                             <div class="row rating-desc">
@@ -168,44 +185,29 @@
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="well well-sm">
-                    <div class="row">
-                        <div class="col-xs-3 col-md-3 text-center">
-                            <img src="http://bootsnipp.com/apple-touch-icon-114x114-precomposed.png" alt="bootsnipp"
-                                 class="img-rounded img-responsive"/>
-                        </div>
-                        <div class="col-xs-9 col-md-9 section-box">
-                            <h2>
-                                jQuery2DotNet <a href="http://bootsnipp.com/" target="_blank"><span
-                                    class="glyphicon glyphicon-new-window">
-                            </span></a>
-                            </h2>
-                            <p>
-                                Cool jQuery, CSS3,HTML5, MVC and C# tutorials with examples</p>
-                            <hr/>
-                            <div class="row rating-desc">
-                                <div class="col-md-12">
-                                    <span class="glyphicon glyphicon-heart"></span><span
-                                        class="glyphicon glyphicon-heart">
-                                </span><span class="glyphicon glyphicon-heart"></span><span
-                                        class="glyphicon glyphicon-heart">
-                                </span><span class="glyphicon glyphicon-heart"></span>(36)<span
-                                        class="separator">|</span>
-                                    <span class="glyphicon glyphicon-comment"></span>(100 Comments)
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
     <div>
 
         <a class="btn btn-large btn-primary pull-right" href="view-itinerary.html">Confirm</a>
     </div>
+    <!-- pager -->
+    <ul ng-if="vm.pager.pages.length" class="pagination">
+        <li ng-class="{disabled:vm.pager.currentPage === 1}">
+            <a ng-click="vm.setPage(1)">First</a>
+        </li>
+        <li ng-class="{disabled:vm.pager.currentPage === 1}">
+            <a ng-click="vm.setPage(vm.pager.currentPage - 1)">Previous</a>
+        </li>
+        <li ng-repeat="page in vm.pager.pages" ng-class="{active:vm.pager.currentPage === page}">
+            <a ng-click="vm.setPage(page)">{{page}}</a>
+        </li>
+        <li ng-class="{disabled:vm.pager.currentPage === vm.pager.totalPages}">
+            <a ng-click="vm.setPage(vm.pager.currentPage + 1)">Next</a>
+        </li>
+        <li ng-class="{disabled:vm.pager.currentPage === vm.pager.totalPages}">
+            <a ng-click="vm.setPage(vm.pager.totalPages)">Last</a>
+        </li>
+    </ul>
 </div>
 
 <!-- /.container -->

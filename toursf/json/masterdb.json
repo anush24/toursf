@@ -8,10 +8,11 @@
       "venue_description": "The Golden Gate Bridge is a suspension bridge spanning the Golden Gate strait, the one-mile-wide (1.6 km), three-mile-long (4.8 km) channel between San Francisco Bay and the Pacific Ocean. The structure links the American city of San Francisco, California – the northern tip of the San Francisco Peninsula – to Marin County, carrying both U.S. Route 101 and California State Route 1 across the strait.",
       "venue_url": "http://goldengatebridge.org/",
       "venue_img_url": "",
-      "venue_likes": "100",
-      "venue_num_reviews": "1245",
-      "venue_price":"Free",
+      "venue_likes": 100,
+      "venue_num_reviews": 1245,
+      "venue_price":0,
       "venue_new":"true",
+      "venue_category": "Parks",
       "venue_hours":[{
             "start":"8:00am",
             "end": "6:00pm"
@@ -25,10 +26,11 @@
       "venue_description": "Fisherman's Wharf is a neighborhood and popular tourist attraction in San Francisco, California. It roughly encompasses the northern waterfront area of San Francisco from Ghirardelli Square or Van Ness Avenue east to Pier 35 or Kearny Street. The F Market streetcar runs through the area, the Powell-Hyde cable car lines runs to Aquatic Park, at the edge of Fisherman's Wharf, and the Powell-Mason cable car line runs a few blocks away.",
       "venue_url": "http://www.fishermanswharf.org/",
       "venue_img_url": "",
-      "venue_likes": "90",
-      "venue_num_reviews": "1005",
-      "venue_price": "Free",
+      "venue_likes": 90,
+      "venue_num_reviews": 1005,
+      "venue_price":0,
       "venue_new":"true",
+      "venue_category": "Landmarks",
       "venue_hours": "Open"
     },
     {
@@ -39,10 +41,11 @@
       "venue_description": "Fisherman's Wharf is a neighborhood and popular tourist attraction in San Francisco, California. It roughly encompasses the northern waterfront area of San Francisco from Ghirardelli Square or Van Ness Avenue east to Pier 35 or Kearny Street. The F Market streetcar runs through the area, the Powell-Hyde cable car lines runs to Aquatic Park, at the edge of Fisherman's Wharf, and the Powell-Mason cable car line runs a few blocks away.",
       "venue_url": "http://www.fishermanswharf.org/",
       "venue_img_url": "",
-      "venue_likes": "1090",
-      "venue_num_reviews": "1590",
-      "venue_price": "Free",
+      "venue_likes": 1090,
+      "venue_num_reviews": 1590,
+      "venue_price": "0",
       "venue_new":"true",
+      "venue_category":"Beaches",
       "venue_hours":[{
         "start":"8:00am",
         "end": "10:00pm"
@@ -56,10 +59,11 @@
       "venue_description": "Fisherman's Wharf is a neighborhood and popular tourist attraction in San Francisco, California. It roughly encompasses the northern waterfront area of San Francisco from Ghirardelli Square or Van Ness Avenue east to Pier 35 or Kearny Street. The F Market streetcar runs through the area, the Powell-Hyde cable car lines runs to Aquatic Park, at the edge of Fisherman's Wharf, and the Powell-Mason cable car line runs a few blocks away.",
       "venue_url": "http://www.fishermanswharf.org/",
       "venue_img_url": "",
-      "venue_likes": "1090",
-      "venue_num_reviews": "1590",
-      "venue_price": "Free",
+      "venue_likes": 1070,
+      "venue_num_reviews": 590,
+      "venue_price": 20,
       "venue_new":"true",
+      "venue_category": "Beaches",
       "venue_hours":[{
         "start":"8:00am",
         "end": "5:00pm"
