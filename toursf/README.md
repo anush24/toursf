@@ -1,28 +1,56 @@
-# [Start Bootstrap](http://startbootstrap.com/) - [Business Casual](http://startbootstrap.com/template-overviews/business-casual/)
+# MEAN Stack RESTful API Tutorial - Contact List App
+<h2>MEAN Stack RESTful API Tutorial - Contact List App</h2>
 
-[Business Casual](http://startbootstrap.com/template-overviews/business-casual/) is a multipurpose website theme for [Bootstrap](http://getbootstrap.com/) created by [Start Bootstrap](http://startbootstrap.com/). This theme features a landing page, about page, blog page, and a contact page along with various custom styles and components.
+<img src="http://i288.photobucket.com/albums/ll175/michaelcheng429/meanstacktutorial_zpsu72ixs47.png" alt="mean stack tutorial app">
 
-## Getting Started
+This repo contains the code for a RESTful API Contact List App that was built using the MEAN stack:
 
-To begin using this template, choose one of the following options to get started:
-* [Download the latest release on Start Bootstrap](http://startbootstrap.com/template-overviews/business-casual/)
-* Clone the repo: `git clone https://github.com/BlackrockDigital/startbootstrap-business-casual.git`
-* Fork the repo
-* Your must enter your database information and your email in form-handler.php - if you don't have a database, that's fine.  Edit contact.html to direct the form to form-handler-nodb.php and emails will be sent with no database writes.
+<ul>
+<li>MongoDB</li>
+<li>Express</li>
+<li>AngularJS</li>
+<li>NodeJS</li>
+</ul>
 
-## Bugs and Issues
+<h3>YouTube Tutorial</h3>
 
-Have a bug or an issue with this template? [Open a new issue](https://github.com/BlackrockDigital/startbootstrap-business-casual/issues) here on GitHub or leave a comment on the [template overview page at Start Bootstrap](http://startbootstrap.com/template-overviews/business-casual/).
+Here is the 5-part YouTube tutorial for this MEAN stack app:
 
-## Creator
+<h4><a href="https://www.youtube.com/watch?v=kHV7gOHvNdk">Part 1/5: Using MongoDB, Express, AngularJS, and NodeJS Together</a></h4>
 
-Start Bootstrap was created by and is maintained by **[David Miller](http://davidmiller.io/)**, Owner of [Blackrock Digital](http://blackrockdigital.io/).
+<h4><a href="https://www.youtube.com/watch?v=7F1nLajs4Eo">Part 2/5: AngularJS and NodeJS App Tutorial</a></h4>
 
-* https://twitter.com/davidmillerskt
-* https://github.com/davidtmiller
+<h4><a href="https://www.youtube.com/watch?v=oVIeMfvgTz8">Part 3/5: MongoDB Tutorial: Downloading, Installing, and Basics</a></h4>
 
-Start Bootstrap is based on the [Bootstrap](http://getbootstrap.com/) framework created by [Mark Otto](https://twitter.com/mdo) and [Jacob Thorton](https://twitter.com/fat).
+<h4><a href="https://www.youtube.com/watch?v=iFsYJG3fGro">Part 4/5: RESTful API, GET and POST Data</a></h4>
 
-## Copyright and License
+<h4><a href="https://www.youtube.com/watch?v=06_SIzYXgqQ">Part 5/5: RESTful API Tutorial, DELETE and PUT Data</a></h4>
 
-Copyright 2013-2016 Blackrock Digital LLC. Code released under the [MIT](https://github.com/BlackrockDigital/startbootstrap-business-casual/blob/gh-pages/LICENSE) license.
+<h3>Instructions</h3>
+
+If you have trouble with the tutorial (especially since I had to modify the code due to an AngularJS update), simply clone this repo using 
+
+    git clone git@github.com:michaelcheng429/meanstacktutorial.git
+
+then install the Node modules with
+
+    npm install
+
+then make sure MongoDB is running with
+
+    mongod
+
+from your MongoDB directory, and then run the code with 
+
+    node server
+
+You might see a message that says, 
+
+    Error: Module did not self-register.]
+    js-bson: Failed to load c++ bson extension, using pure JS version
+    
+Don't worry about this; the code will still work.
+
+<h3>Have fun!</h3>
+
+If you have any questions, feel free to leave a comment and I will try to help if I can!
